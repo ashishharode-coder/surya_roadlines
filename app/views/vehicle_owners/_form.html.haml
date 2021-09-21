@@ -1,0 +1,45 @@
+%main
+  .container-fluid
+    %h2.mt-30.page-title Vehicle Owner
+    %ol.breadcrumb.mb-30
+      %li.breadcrumb-item
+        %a{href: "index.html"} Dashboard
+      %li.breadcrumb-item
+        %a{href: "shops.html"} Vehicle Owner
+      %li.breadcrumb-item.active
+        = params[:action]
+        vehicle owner
+    = form_for @vehicle_owner do |f|
+      .row
+        .col-lg-12
+          .add-new-shop
+            .card.card-static-2.mb-30
+              .row.no-gutters
+                .col-lg-12.col-md-12
+                  .card-title-2
+                    %h4 Add Vehicle Owner
+                  .card-body-table
+                    .add-shop-content.pd-20
+                      .form-group
+                        %label.form-label First Name*
+                        = f.text_field :first_name, class:"form-control", placeholder: "First Name", required: true
+                      .form-group
+                        %label.form-label Last Name*
+                        = f.text_field :last_name, class:"form-control", placeholder: "Last Name", required: true
+                      .form-group
+                        %label.form-label Email
+                        = f.email_field :email, class:"form-control"
+                      .form-group
+                        %label.form-label Mobile Number*
+                        = f.number_field :mobile_number, class:"form-control", required: true
+                      .form-group
+                        %label.form-label Alternat Mobile Number
+                        = f.number_field :alt_mobile_number, class:"form-control"
+                      .form-group
+                        %label.form-label Address*
+                        = f.text_area :address, class:"text-control", required: true
+                      .form-group
+                        %label.form-label Image
+                        = f.file_field :image, class: "form-control"
+          %div
+            = f.submit "submit", class:"save-btn hover-btn"
